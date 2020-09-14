@@ -11431,10 +11431,12 @@ function _authorize() {
             url = env.getUrl();
             storage = env.getStorage(); // For these three an url param takes precedence over inline option          
 
-            iss = url.searchParams.get("iss") || iss;
-            fhirServiceUrl = url.searchParams.get("fhirServiceUrl") || "https://dips-ehr-service.azurewebsites.net";
-            console.log("fhirServiceUrl: " + fhirServiceUrl);
+            url.searchParams.forEach((value, key) => {
+              console.log(key + " " + value);
+            });
 
+            iss = url.searchParams.get("iss") || iss;
+            fhirServiceUrl = url.searchParams.get("fhirServiceUrl") || "https://dips-ehr-service.azurewebsites.net";            
             // Added by tst@dips.no for demo purposes
             patientId = url.searchParams.get("patientId") || patientId;
             launch = url.searchParams.get("launch") || launch;
