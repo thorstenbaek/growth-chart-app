@@ -11433,6 +11433,8 @@ function _authorize() {
 
             iss = url.searchParams.get("iss") || iss;
             fhirServiceUrl = url.searchParams.get("fhirServiceUrl") || fhirServiceUrl;
+            console.log("fhirServiceUrl: " + fhirServiceUrl);
+
             // Added by tst@dips.no for demo purposes
             patientId = url.searchParams.get("patientId") || patientId;
             launch = url.searchParams.get("launch") || launch;
@@ -11452,6 +11454,7 @@ function _authorize() {
             }
 
             serverUrl = String(iss || fhirServiceUrl || ""); // Validate input            
+            console.log("serverUrl: " + serverUrl);
 
             if (serverUrl) {
               _context.next = 14;
