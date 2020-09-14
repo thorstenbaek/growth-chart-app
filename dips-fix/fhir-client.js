@@ -11432,7 +11432,7 @@ function _authorize() {
             storage = env.getStorage(); // For these three an url param takes precedence over inline option          
 
             iss = url.searchParams.get("iss") || iss;
-            fhirServiceUrl = url.searchParams.get("fhirServiceUrl") || fhirServiceUrl;
+            fhirServiceUrl = url.searchParams.get("fhirServiceUrl") || "https://dips-ehr-service.azurewebsites.net";
             console.log("fhirServiceUrl: " + fhirServiceUrl);
 
             // Added by tst@dips.no for demo purposes
