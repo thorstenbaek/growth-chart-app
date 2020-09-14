@@ -11428,7 +11428,10 @@ function _authorize() {
             // Obtain input
             _params = params, iss = _params.iss, launch = _params.launch, fhirServiceUrl = _params.fhirServiceUrl, redirect_uri = _params.redirect_uri, redirectUri = _params.redirectUri, _params$scope = _params.scope, scope = _params$scope === void 0 ? "" : _params$scope, clientSecret = _params.clientSecret, fakeTokenResponse = _params.fakeTokenResponse, patientId = _params.patientId, encounterId = _params.encounterId, client_id = _params.client_id, clientId = _params.clientId;            
 
+            console.log("window.location", window.location);
+
             url = env.getUrl();
+            console.log("env.getUrl()", url);
             storage = env.getStorage(); // For these three an url param takes precedence over inline option          
 
             url.searchParams.forEach((value, key) => {
