@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: growth-chart-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: growth-chart-app  
+  template:
+    metadata:
+      labels:
+        app: growth-chart-app
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: dips-ehr-service
+        image: thorstenbaekcontainerregistry.azurecr.io/growth-chart-app:latest
+        ports:        
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: growth-chart-app
+  labels:
+    name: growth-chart-app
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: growth-chart-app # => http://growth-chart-app.northeurope.cloudapp.azure.com/
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: growth-chart-app
