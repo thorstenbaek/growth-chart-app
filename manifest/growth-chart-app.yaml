@@ -15,7 +15,7 @@ spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-      - name: dips-ehr-service
+      - name: growth-chart-app
         image: thorstenbaek/growth-chart-app:v1.0.0.0
         ports:        
         - containerPort: 80
