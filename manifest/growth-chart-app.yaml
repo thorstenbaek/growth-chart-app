@@ -16,7 +16,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: dips-ehr-service
-        image: thorstenbaekcontainerregistry.azurecr.io/growth-chart-app:latest
+        image: thorstenbaek/growth-chart-app:v1.0.0.0
         ports:        
         - containerPort: 80
 ---
@@ -27,7 +27,7 @@ metadata:
   labels:
     name: growth-chart-app
   annotations:
-    service.beta.kubernetes.io/azure-dns-label-name: growth-chart-app # => http://growth-chart-app.northeurope.cloudapp.azure.com/
+    service.beta.kubernetes.io/azure-dns-label-name: growth-chart-app # => http://growth-chart-app.norwayeast.cloudapp.azure.com/
 spec:
   type: LoadBalancer
   ports:
